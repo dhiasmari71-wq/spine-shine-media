@@ -4,7 +4,7 @@ import ScrollButton from "./ScrollButton";
 
 const Hero = () => {
   return (
-    <div className="w-full flex md:items-center flex-col md:flex-row gap-10 mb-[80px] md:mb-[188px] px-10 xl:px-[144px]">
+    <div className="w-full flex md:items-center flex-col md:flex-row gap-[160px] md:gap-10 mb-[80px] md:mb-[188px] px-10 xl:px-[144px]">
       <div className="w-full md:w-1/2 max-w-[339px] md:max-w-[636px] flex flex-col">
         {/* Gradeint Text */}
         <div className="relative">
@@ -58,14 +58,21 @@ const Hero = () => {
           alt="hero image"
           width={477}
           height={637}
-          className="w-[313px] md:w-[477px] h-[637px] object-contain"
+          className="hidden md:block w-[313px] md:w-[477px] h-[637px] object-contain"
+        />
+        <Image
+          src={"/assets/Hero-Images-mobile.svg"}
+          alt="hero image"
+          width={477}
+          height={637}
+          className="block md:hidden w-[313px] md:w-[477px] h-[637px] object-contain"
         />
         <Image
           src={"/assets/4Stars.svg"}
           alt="hero"
           width={212}
           height={292}
-          className="w-[82px] h-[82px] object-contain absolute top-[5%] md:top-[-10%] right-[0%]"
+          className="w-[82px] h-[82px] object-contain absolute top-[-10%] md:top-[-10%] right-[0%]"
         />
       </div>
     </div>

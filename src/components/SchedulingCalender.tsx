@@ -280,7 +280,7 @@ const SchedulingCalender = () => {
 
       {/* DETAILS FORM */}
       {step === "details" && (
-        <div className="max-w-2xl mx-auto">
+        <div className="max-w-2xl mx-auto  backdrop-blur">
           <button onClick={handleBackStep} className="flex items-center gap-2 text-yellow-500 hover:text-yellow-400 mb-8 transition-colors">
             <ArrowLeft className="w-5 h-5" /> Back
           </button>
@@ -289,7 +289,7 @@ const SchedulingCalender = () => {
             <h2 className="text-white text-3xl font-bold mb-2">Discovery</h2>
 
             <form onSubmit={handleScheduleCall} className="space-y-6">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-white font-semibold mb-2">First Name *</label>
                   <input
@@ -312,7 +312,7 @@ const SchedulingCalender = () => {
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-white font-semibold mb-2">Phone *</label>
                   <input
