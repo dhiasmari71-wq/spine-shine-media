@@ -18,7 +18,7 @@ export default function Home() {
       {/* Header */}
       <Header />
 
-      <main className="w-full max-w-[1364px] mx-auto px-6 sm:px-0  relative">
+      <main className="w-full max-w-[1364px] mx-auto px-6 sm:px-0  relative ">
         {/* Background Images */}
         <Image
           src={BackgroundDesktopSVG1}
@@ -112,17 +112,16 @@ export default function Home() {
         <div
           className="relative z-10 md:z-0 bg-[linear-gradient(287.76deg,rgba(255,215,0,0.1105)_4.64%,rgba(255,215,0,0.0195)_98.6%)]
          w-full h-full max-h-[1500px] lg:max-h-[600px] rounded-md border-4 border-border  
-         px-12 md:px-[78px] pt-12 pb-12 md:pb-[70px] mb-[80px] md:mb-[230px]"
+         px-12 md:px-[78px] pt-12 pb-12 md:pb-[70px] mb-[80px] md:mb-[230px]
+         overflow-hidden"
         >
-          {/* backdrop blur */}
-          {/* <div className="z-1 absolute inset-0 bg-foreground backdrop-blur-[44px] rounded-md"></div> */}
           {/* gradient 1 */}
           <Image
             src="/assets/our-process-card-bg.svg"
             alt="bg"
             width={380}
             height={380}
-            className="w-[380px] h-[380px] object-contain absolute top-[10%] lg:top-[30%] right-[5%] lg:left-0 -z-10"
+            className="w-[480px] h-[480px] object-contain absolute top-[10%] lg:top-[30%] right-[5%] sm:right-[25%] lg:left-[-5%] -z-10"
           />
           {/* gradient 2 */}
           <Image
@@ -130,7 +129,7 @@ export default function Home() {
             alt="bg"
             width={380}
             height={380}
-            className="w-[380px] h-[380px] object-contain absolute top-[40%] lg:top-[30%] right-[5%] lg:left-[36%] -z-10"
+            className="w-[480px] h-[480px] object-contain absolute top-[40%] lg:top-[30%] right-[5%] sm:right-[25%] lg:left-[33%] -z-10"
           />
           {/* gradient 3 */}
           <Image
@@ -138,7 +137,7 @@ export default function Home() {
             alt="bg"
             width={380}
             height={380}
-            className="w-[380px] h-[380px] object-contain absolute top-[75%] lg:top-[30%] right-[20%] lg:right-[0%] -z-10"
+            className="w-[480px] h-[480px] object-contain absolute top-[70%] lg:top-[30%] right-[20%] lg:right-[-5%] -z-10"
           />
           {/* Content */}
           <h2 className="text-center font-poppins font-extrabold text-[32px] text-white mb-12 md:mb-[78px]">
@@ -163,7 +162,7 @@ export default function Home() {
                 alt="bg"
                 width={380}
                 height={380}
-                className="w-[380px] h-[380px] object-contain absolute bottom-[-50%] left-0 -z-10"
+                className="w-[480px] h-[480px] object-contain absolute bottom-[-70%] left-0 -z-10"
               />
             </div>
             {/* Arrow Right (Desktop) */}
@@ -200,7 +199,7 @@ export default function Home() {
                 alt="bg"
                 width={380}
                 height={380}
-                className="w-[380px] h-[380px] object-contain absolute bottom-[-50%] left-0 -z-10"
+                className="w-[480px] h-[480px] object-contain absolute bottom-[-70%] left-0 -z-10"
               />
             </div>
 
@@ -238,7 +237,7 @@ export default function Home() {
                 alt="bg"
                 width={380}
                 height={380}
-                className="w-[380px] h-[380px] object-contain absolute bottom-[-50%] left-0 -z-10"
+                className="w-[480px] h-[480px] object-contain absolute bottom-[-70%] left-0 -z-10"
               />
             </div>
           </div>
