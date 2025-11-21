@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const Footer = () => {
   return (
-    <div className="w-full bg-foreground flex flex-col md:flex-row gap-5 items-center justify-between px-6 sm:px-12 pb-10 md:pb-0">
+    <div className="w-full max-w-[1364px] flex flex-col md:flex-row gap-5 items-center justify-between px-6 sm:px-12 pb-10 md:pb-0">
       <Image
         src={"/assets/icons/FooterLogo.svg"}
         alt="logo"
