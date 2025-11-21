@@ -55,10 +55,10 @@ export default function Home() {
               {/* Gradient overlay */}
               <div className="absolute inset-0 pointer-events-none z-[15] bg-[radial-gradient(50%_50%_at_50.79%_43.27%,rgba(0,0,0,0.2226)_0%,rgba(0,0,0,0)_100%)]"></div>
 
-              {/* Background image */}
+              {/* Background text image */}
               <Image
-                src={HeroTextBG}
-                alt="background"
+                src={"/assets/Hero-text-bg.svg"}
+                alt="hero text-bg"
                 width={520}
                 height={280}
                 className="absolute top-0 right-0 w-[520px] h-[280px] object-contain z-[10]"
@@ -92,8 +92,8 @@ export default function Home() {
           {/* Image */}
           <div className="w-full md:w-1/2 flex flex-col items-center h-full max-h-[700px] relative">
             <Image
-              src={"/assets/Hero images.png"}
-              alt="hero"
+              src={"/assets/Hero-Image.png"}
+              alt="hero image"
               width={477}
               height={637}
               className="w-[313px] md:w-[477px] h-[637px] object-contain"
