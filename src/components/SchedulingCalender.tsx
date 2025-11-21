@@ -104,7 +104,7 @@ const SchedulingCalender = () => {
         formattedDate,
         lead: { ...formData },
       };
-      console.log(bookingData);
+      // console.log(bookingData);
       const response = await fetch("/api/schedule-call", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -147,28 +147,32 @@ const SchedulingCalender = () => {
   for (let i = 1; i <= daysInMonth; i++) days.push(i);
 
   const timeSlots = [
-    "12:30 AM",
-    "01:30 AM",
-    "02:30 AM",
-    "03:00 AM",
-    "03:30 AM",
-    "05:00 AM",
+    "8:00 AM",
+    "08:30 AM",
+    "09:00 AM",
+    "09:30 AM",
+    "10:00 AM",
+    "11:00 AM",
+    "12:00 PM",
+    "02:00 PM",
+    "03:00 PM",
+    "04:00 PM",
+    "05:00 PM",
+    "06:00 PM",
+    "07:00 PM",
     "08:00 PM",
-    "08:30 PM",
-    "09:00 PM",
-    "10:00 PM",
   ];
 
   const timezones = [
-    "GMT+6:00 Asia/Dhaka",
-    "GMT-5:00 America/New_York",
-    "GMT+0:00 Europe/London",
-    "GMT+5:30 Asia/Kolkata",
-    "GMT+8:00 Asia/Singapore",
+    "GMT-6:00 Asia",
+    // "GMT-5:00 America/New_York",
+    // "GMT+0:00 Europe/London",
+    // "GMT+5:30 Asia/Kolkata",
+    // "GMT+8:00 Asia/Singapore",
   ];
 
   return (
-    <div className="calenderContainer relative overflow-hidden">
+    <div className="calenderContainer relative overflow-hidden" id="calendar-section">
       {/* DATE SELECTION */}
       {step === "date" && (
         <div className="w-[372px] md:w-[561px] min-h-[457px] md:h-[731px] border-2 border-border rounded-lg px-6 backdrop-blur" style={{ backgroundColor: "#FFD70021" }}>
@@ -247,7 +251,7 @@ const SchedulingCalender = () => {
                 className="w-full px-4 py-3 rounded-lg bg-[#FFD70021] text-white border border-border focus:outline-none"
               >
                 {timezones.map((tz) => (
-                  <option key={tz} value={tz}>{tz}</option>
+                  <option key={tz} value={tz} className="bg-white text-black">{tz} </option>
                 ))}
               </select>
             </div>

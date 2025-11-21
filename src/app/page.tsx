@@ -8,30 +8,15 @@ import BackgroundDesktopSVG2 from "../../public/assets/icons/Desktop-Vector-3.sv
 import BackgroundMobileSVG1 from "../../public/assets/icons/Mobile-Vector-1.svg";
 import BackgroundMobileSVG2 from "../../public/assets/icons/Mobile-Vector-3.svg";
 import ScrollButton from "@/components/ScrollButton";
+import Header from "@/components/Header";
+import CTA from "@/components/CTA";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <div className="w-full">
+    <div className="w-full max-w-[1364px] mx-auto">
       {/* Header */}
-      <nav className="w-full max-w-[1364px] px-0 sm:px-10 xl:px-[144px] mb-10 relative">
-        <Image
-          src={LogoBG}
-          alt="background"
-          className="absolute bottom-[0%] left-[10%] w-full max-w-[658px] h-[188px] object-contain -z-10"
-        />
-        <div className="flex items-center">
-          <Image
-            src={"/assets/Logo-2.svg"}
-            alt="logo"
-            width={188}
-            height={188}
-            className="w-[90px] md:w-[188px] h-[188px] object-contain"
-          />
-          <h1 className="font-poppins font-[900] text-[24px] text-white">
-            Spine Shine Media
-          </h1>
-        </div>
-      </nav>
+      <Header />
 
       <main className="w-full max-w-[1364px] mx-auto px-6 sm:px-0  relative">
         {/* Background Images */}
@@ -68,10 +53,7 @@ export default function Home() {
               </h1>
 
               {/* Gradient overlay */}
-              <div
-                className="absolute inset-0 pointer-events-none z-[15] 
-      bg-[radial-gradient(50%_50%_at_50.79%_43.27%,rgba(0,0,0,0.2226)_0%,rgba(0,0,0,0)_100%)]"
-              ></div>
+              <div className="absolute inset-0 pointer-events-none z-[15] bg-[radial-gradient(50%_50%_at_50.79%_43.27%,rgba(0,0,0,0.2226)_0%,rgba(0,0,0,0)_100%)]"></div>
 
               {/* Background image */}
               <Image
@@ -90,11 +72,11 @@ export default function Home() {
             </h3>
 
             {/* CTA */}
-            <ScrollButton />
+            <div className="w-full max-w-[280px] flex flex-col items-center md:items-start">
+              <ScrollButton />
 
-            <div className="w-full flex justify-center md:justify-start  mt-[52px]">
-              <div className="flex items-center gap-2">
-                <p className="font-poppins text-[18px] text-white tracking-[6.08px]">
+              <div className="flex items-center gap-2   mt-[52px]">
+                <p className="font-poppins text-[18px] text-white tracking-[6.08px] md:tracking-[12.08px]">
                   SCROLL NOW
                 </p>
                 <Image
@@ -121,7 +103,7 @@ export default function Home() {
               alt="hero"
               width={212}
               height={292}
-              className="w-[82px] h-[82px] object-contain absolute top-[00%] right-[10%]"
+              className="w-[82px] h-[82px] object-contain absolute top-[5%] md:top-[-10%] right-[0%]"
             />
           </div>
         </div>
@@ -264,7 +246,7 @@ export default function Home() {
 
         {/* Calender */}
         <div
-          id="calendar-section"
+          
           className="w-full flex flex-col-reverse lg:flex-row justify-between gap-15 md:gap-3 px-10"
         >
           <div className="md:min-w-[516px] flex flex-col items-center">
@@ -316,67 +298,11 @@ export default function Home() {
         </div>
 
         {/* CTA */}
-        <div className="w-full flex flex-col items-center mt-[324px] md:mt-[190px] mb-[100px]">
-          <div className="w-full max-w-[577px] min-h-[412px] rounded-[20px] bg-[linear-gradient(135.37deg,rgba(255,215,0,0.27)_0%,rgba(255,215,0,0.04)_100%)] border-4 border-border pt-6 px-10 pb-[70px]">
-            <h1 className="text-primary font-poppins font-bold text-[49px] mb-4 bg-transparent">
-              Have A General Inquiry?
-            </h1>
-            <p className="text-white font-poppins font-bold text-[20px] bg-transparent">
-              If you have a general inquiry and would like to speak to our
-              expert team, you can contact us via email at:
-            </p>
-            <div className="flex items-center gap-2 bg-transparent mt-5">
-              <Image
-                src={"/assets/icons/email.svg"}
-                alt="logo"
-                width={24}
-                height={24}
-                className="w-[24px] h-[24px] object-contain bg-transparent"
-              />
-              <p className="text-white font-extrabold bg-transparent mt-2">
-                spineshinemedia@gmail.com
-              </p>
-            </div>
-          </div>
-        </div>
+        <CTA />
       </main>
 
       {/* Footer  */}
-      <div className="w-full bg-foreground flex items-center justify-between px-6 sm:px-12">
-        <Image
-          src={"/assets/icons/FooterLogo.svg"}
-          alt="logo"
-          width={70}
-          height={70}
-          className="w-[70px] h-[70px] object-contain bg-transparent"
-        />
-        <h2 className="text-white font-poppins font-normal text-[18px] bg-transparent">
-          Spine Shine Media
-        </h2>
-        <div className="flex items-center gap-2 bg-transparent">
-          <Image
-            src={"/assets/icons/social-x.svg"}
-            alt="logo"
-            width={24}
-            height={24}
-            className="w-[16px] h-[16px] object-contain bg-transparent"
-          />
-          <Image
-            src={"/assets/icons/social-fb.svg"}
-            alt="logo"
-            width={24}
-            height={24}
-            className="w-[16px] h-[16px] object-contain bg-transparent"
-          />
-          <Image
-            src={"/assets/icons/social-linkedin.svg"}
-            alt="logo"
-            width={24}
-            height={24}
-            className="w-[16px] h-[16px] object-contain bg-transparent"
-          />
-        </div>
-      </div>
+      <Footer />
     </div>
   );
 }
