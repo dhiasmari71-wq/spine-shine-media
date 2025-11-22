@@ -29,7 +29,7 @@ const SchedulingCalender = () => {
       day
     );
     const dayOfWeek = checkDate.getDay(); // 0 = Sunday, 6 = Saturday
-    return dayOfWeek === 0 || dayOfWeek === 6;
+    return dayOfWeek === 5 || dayOfWeek === 6;
   };
   
   const getDaysInMonth = (date: Date) =>
