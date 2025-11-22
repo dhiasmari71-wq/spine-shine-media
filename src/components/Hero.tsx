@@ -4,7 +4,7 @@ import ScrollButton from "./ScrollButton";
 
 const Hero = () => {
   return (
-    <div className="w-full flex md:items-center flex-col md:flex-row gap-[160px] md:gap-10 mb-[80px] md:mb-[188px] px-10 xl:px-[144px]">
+    <div className="w-full flex md:items-center flex-col md:flex-row gap-[160px] md:gap-10 mb-[80px] md:mb-[188px] px-4 xl:px-[144px]">
       <div className="w-full md:w-1/2 max-w-[339px] md:max-w-[636px] flex flex-col">
         {/* Gradeint Text */}
         <div className="relative">

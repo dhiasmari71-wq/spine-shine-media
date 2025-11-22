@@ -22,6 +22,16 @@ const SchedulingCalender = () => {
   });
 
   // Utility functions
+  const isWeekend = (day: number) => {
+    const checkDate = new Date(
+      currentDate.getFullYear(),
+      currentDate.getMonth(),
+      day
+    );
+    const dayOfWeek = checkDate.getDay(); // 0 = Sunday, 6 = Saturday
+    return dayOfWeek === 0 || dayOfWeek === 6;
+  };
+  
   const getDaysInMonth = (date: Date) =>
     new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
   const getFirstDayOfMonth = (date: Date) =>
@@ -201,7 +211,10 @@ const SchedulingCalender = () => {
 
           <div className="grid grid-cols-7 gap-2 mb-6">
             {days.map((day, idx) => {
-              const isDisabled = day === null || isPastDate(day);
+              const isDisabled = 
+              day === null || 
+              isPastDate(day) || 
+              isWeekend(day);
               return (
                 <button
                   key={idx}

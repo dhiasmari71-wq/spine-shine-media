@@ -3,7 +3,7 @@ import LogoBG from "../../public/assets/icons/logo-bg.svg";
 
 const Header = () => {
   return (
-    <nav className="w-full max-w-[1364px] px-0 pl-10 sm:ml-5 xl:ml-20 mb-10 relative">
+    <nav className="w-full max-w-[1364px] px-0 sm:ml-5 xl:ml-20 mb-10 relative">
       <Image
         src={LogoBG}
         alt="background"
