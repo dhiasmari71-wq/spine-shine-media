@@ -174,12 +174,34 @@ const SchedulingCalender = () => {
   ];
 
   const timezones = [
-    "GMT-6:00 Asia",
+    "GMT-10:00 Pacific/Honolulu",
+    "GMT-8:00 America/Los_Angeles",
+    "GMT-7:00 America/Denver",
+    "GMT-6:00 America/Chicago",
     "GMT-5:00 America/New_York",
+    "GMT-4:00 America/Santiago",
+    "GMT-3:00 America/Sao_Paulo",
+    "GMT-1:00 Atlantic/Azores",
     "GMT+0:00 Europe/London",
+    "GMT+1:00 Europe/Berlin",
+    "GMT+2:00 Europe/Helsinki",
+    "GMT+3:00 Europe/Moscow",
+    "GMT+3:30 Asia/Tehran",
+    "GMT+4:00 Asia/Dubai",
+    "GMT+4:30 Asia/Kabul",
+    "GMT+5:00 Asia/Karachi",
     "GMT+5:30 Asia/Kolkata",
+    "GMT+5:45 Asia/Kathmandu",
+    "GMT+6:00 Asia/Dhaka",
+    "GMT+7:00 Asia/Bangkok",
     "GMT+8:00 Asia/Singapore",
+    "GMT+9:00 Asia/Tokyo",
+    "GMT+9:30 Australia/Adelaide",
+    "GMT+10:00 Australia/Sydney",
+    "GMT+11:00 Pacific/Guadalcanal",
+    "GMT+12:00 Pacific/Auckland"
   ];
+  
 
   return (
     <div className="calenderContainer relative overflow-hidden" id="calendar-section">
