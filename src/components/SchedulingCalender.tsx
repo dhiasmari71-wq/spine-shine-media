@@ -164,21 +164,21 @@ const SchedulingCalender = () => {
     "10:00 AM",
     "11:00 AM",
     "12:00 PM",
-    "02:00 PM",
-    "03:00 PM",
-    "04:00 PM",
-    "05:00 PM",
-    "06:00 PM",
-    "07:00 PM",
-    "08:00 PM",
+    "2:00 PM", "2:30 PM",
+    "3:00 PM", "3:30 PM",
+    "4:00 PM", "4:30 PM",
+    "5:00 PM", "5:30 PM",
+    "6:00 PM", "6:30 PM",
+    "7:00 PM", "7:30 PM",
+    "8:00 PM"
   ];
 
   const timezones = [
     "GMT-6:00 Asia",
-    // "GMT-5:00 America/New_York",
-    // "GMT+0:00 Europe/London",
-    // "GMT+5:30 Asia/Kolkata",
-    // "GMT+8:00 Asia/Singapore",
+    "GMT-5:00 America/New_York",
+    "GMT+0:00 Europe/London",
+    "GMT+5:30 Asia/Kolkata",
+    "GMT+8:00 Asia/Singapore",
   ];
 
   return (
