@@ -9,7 +9,7 @@ export async function POST(req: NextRequest) {
 
     // Send email to user
     await resend.emails.send({
-      from: data.lead.email,
+      from: "onboarding@resend.dev",
       to: "spineshinemedia@gmail.com",
       subject: "Your Call is Scheduled!",
       html: `
