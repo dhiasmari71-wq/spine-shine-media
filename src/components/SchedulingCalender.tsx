@@ -8,9 +8,13 @@ const SchedulingCalender = () => {
   const [currentDate, setCurrentDate] = useState(new Date(2025, 10, 14));
   const [selectedDate, setSelectedDate] = useState<number | null>(null);
   const [selectedTime, setSelectedTime] = useState<string | null>(null);
-  const [selectedTimezone, setSelectedTimezone] = useState(
-    "GMT+6:00 Asia/Dhaka"
-  );
+  const [selectedTimezone, setSelectedTimezone] = useState(() => {
+    // Automatically detect user's timezone
+    const userTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    const offset = -new Date().getTimezoneOffset() / 60;
+    const sign = offset >= 0 ? '+' : '';
+    return `GMT${sign}${offset}:00 ${userTimezone}`;
+  });
   const [isLoading, setIsLoading] = useState(false);
 
   const [formData, setFormData] = useState({
@@ -174,33 +178,99 @@ const SchedulingCalender = () => {
   ];
 
   const timezones = [
+    "GMT-12:00 Pacific/Kwajalein",
+    "GMT-11:00 Pacific/Midway",
+    "GMT-11:00 Pacific/Pago_Pago",
     "GMT-10:00 Pacific/Honolulu",
+    "GMT-9:30 Pacific/Marquesas",
+    "GMT-9:00 America/Anchorage",
+    "GMT-9:00 America/Juneau",
     "GMT-8:00 America/Los_Angeles",
+    "GMT-8:00 America/Vancouver",
+    "GMT-8:00 America/Tijuana",
     "GMT-7:00 America/Denver",
+    "GMT-7:00 America/Phoenix",
+    "GMT-7:00 America/Chihuahua",
     "GMT-6:00 America/Chicago",
+    "GMT-6:00 America/Mexico_City",
+    "GMT-6:00 America/Guatemala",
     "GMT-5:00 America/New_York",
+    "GMT-5:00 America/Toronto",
+    "GMT-5:00 America/Bogota",
+    "GMT-5:00 America/Lima",
+    "GMT-4:30 America/Caracas",
     "GMT-4:00 America/Santiago",
+    "GMT-4:00 America/Halifax",
+    "GMT-4:00 America/La_Paz",
+    "GMT-3:30 America/St_Johns",
     "GMT-3:00 America/Sao_Paulo",
+    "GMT-3:00 America/Argentina/Buenos_Aires",
+    "GMT-3:00 America/Montevideo",
+    "GMT-2:00 Atlantic/South_Georgia",
     "GMT-1:00 Atlantic/Azores",
+    "GMT-1:00 Atlantic/Cape_Verde",
     "GMT+0:00 Europe/London",
+    "GMT+0:00 Africa/Casablanca",
+    "GMT+0:00 Atlantic/Reykjavik",
     "GMT+1:00 Europe/Berlin",
+    "GMT+1:00 Europe/Paris",
+    "GMT+1:00 Europe/Rome",
+    "GMT+1:00 Europe/Madrid",
+    "GMT+1:00 Africa/Lagos",
+    "GMT+1:00 Europe/Amsterdam",
     "GMT+2:00 Europe/Helsinki",
+    "GMT+2:00 Europe/Athens",
+    "GMT+2:00 Africa/Cairo",
+    "GMT+2:00 Africa/Johannesburg",
+    "GMT+2:00 Asia/Jerusalem",
+    "GMT+2:00 Europe/Istanbul",
     "GMT+3:00 Europe/Moscow",
+    "GMT+3:00 Asia/Baghdad",
+    "GMT+3:00 Africa/Nairobi",
+    "GMT+3:00 Asia/Riyadh",
     "GMT+3:30 Asia/Tehran",
     "GMT+4:00 Asia/Dubai",
+    "GMT+4:00 Asia/Baku",
+    "GMT+4:00 Asia/Muscat",
     "GMT+4:30 Asia/Kabul",
     "GMT+5:00 Asia/Karachi",
+    "GMT+5:00 Asia/Tashkent",
     "GMT+5:30 Asia/Kolkata",
+    "GMT+5:30 Asia/Colombo",
     "GMT+5:45 Asia/Kathmandu",
     "GMT+6:00 Asia/Dhaka",
+    "GMT+6:00 Asia/Almaty",
+    "GMT+6:30 Asia/Yangon",
     "GMT+7:00 Asia/Bangkok",
+    "GMT+7:00 Asia/Jakarta",
+    "GMT+7:00 Asia/Ho_Chi_Minh",
+    "GMT+7:00 Asia/Hanoi",
     "GMT+8:00 Asia/Singapore",
+    "GMT+8:00 Asia/Hong_Kong",
+    "GMT+8:00 Asia/Shanghai",
+    "GMT+8:00 Asia/Taipei",
+    "GMT+8:00 Asia/Manila",
+    "GMT+8:00 Australia/Perth",
+    "GMT+8:30 Asia/Pyongyang",
     "GMT+9:00 Asia/Tokyo",
+    "GMT+9:00 Asia/Seoul",
     "GMT+9:30 Australia/Adelaide",
+    "GMT+9:30 Australia/Darwin",
     "GMT+10:00 Australia/Sydney",
+    "GMT+10:00 Australia/Melbourne",
+    "GMT+10:00 Australia/Brisbane",
+    "GMT+10:00 Pacific/Guam",
+    "GMT+10:30 Australia/Lord_Howe",
     "GMT+11:00 Pacific/Guadalcanal",
-    "GMT+12:00 Pacific/Auckland"
+    "GMT+11:00 Pacific/Noumea",
+    "GMT+12:00 Pacific/Auckland",
+    "GMT+12:00 Pacific/Fiji",
+    "GMT+12:45 Pacific/Chatham",
+    "GMT+13:00 Pacific/Tongatapu",
+    "GMT+13:00 Pacific/Apia",
+    "GMT+14:00 Pacific/Kiritimati"
   ];
+  
   
 
   return (
