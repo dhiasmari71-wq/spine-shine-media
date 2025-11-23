@@ -29,7 +29,7 @@ const SchedulingCalender = () => {
       day
     );
     const dayOfWeek = checkDate.getDay(); // 0 = Sunday, 6 = Saturday
-    return dayOfWeek === 5 || dayOfWeek === 6;
+    return dayOfWeek === 0 || dayOfWeek === 6;
   };
   
   const getDaysInMonth = (date: Date) =>
@@ -204,7 +204,7 @@ const SchedulingCalender = () => {
           </div>
 
           <div className="grid grid-cols-7 gap-2 mb-4">
-            {["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"].map((day) => (
+            {["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"].map((day) => (
               <div key={day} className="text-center text-[24px] font-medium text-white">{day}</div>
             ))}
           </div>
