@@ -357,12 +357,12 @@ const SchedulingCalender = () => {
             })}
           </div>
 
-          <div className="w-full flex items-center justify-center">
+          <div className="w-full flex items-center justify-start">
             <div className="flex items-center gap-4">
-              <h2 className="text-white text-[18px] font-bold">
+              <h2 className="text-white text-[14px] font-bold">
                 Current Time zone
               </h2>
-              <p className="text-white text-[14px] font-medium">
+              <p className="text-white text-[10px] font-medium">
                 {selectedTimezone}
               </p>
             </div>

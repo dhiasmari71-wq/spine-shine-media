@@ -8,7 +8,7 @@ const CTA = () => {
           <h1 className="text-primary font-poppins font-bold text-[35px] md:text-[49px] mb-2 bg-transparent">
             Have A General Inquiry?
           </h1>
-          <p className="text-white font-poppins font-regular text-[20px] bg-transparent">
+          <p className="text-white font-poppins font-regular text-[16px] md:text-[20px] bg-transparent">
             If you have a general inquiry and would like to speak to our expert
             team, you can contact us via email at:
           </p>
@@ -18,9 +18,9 @@ const CTA = () => {
               alt="logo"
               width={24}
               height={24}
-              className="w-[24px] h-[24px] object-contain bg-transparent"
+              className="w-[16px] md:w-[24px] h-[16px] md:h-[24px] object-contain bg-transparent"
             />
-            <p className="text-white font-regular text-[16px] bg-transparent mt-2">
+            <p className="text-white font-regular sm:text-[12px] text-[16px] bg-transparent">
               spineshinemedia@gmail.com
             </p>
           </div>
