@@ -292,7 +292,7 @@ const SchedulingCalender = () => {
       {/* DATE SELECTION */}
       {step === "date" && (
         <div
-          className="w-[372px] md:w-[561px] min-h-[457px] md:h-[731px] border-2 border-border rounded-lg px-6 backdrop-blur"
+          className="w-[372px] md:w-[561px] min-h-[457px] md:h-[731px] border-2 border-border rounded-lg px-6 backdrop-blur   pb-5"
           style={{ backgroundColor: "#FFD70021" }}
         >
           <div className="w-full max-w-[372px] flex items-center justify-between m-3 md:m-15">
@@ -380,7 +380,7 @@ const SchedulingCalender = () => {
             <ArrowLeft className="w-5 h-5" /> Back
           </button>
 
-          <div className=" rounded-2xl p-8">
+          <div className=" rounded-2xl md:p-8">
             <h2 className="text-white text-3xl font-bold text-center mb-2">
               {selectedDate !== null &&
                 new Date(

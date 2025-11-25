@@ -47,7 +47,7 @@ export default function Home() {
           <OurProcess />
 
           {/* Calender */}
-          <div className="w-full flex flex-col-reverse lg:flex-row justify-between gap-15 md:gap-3 px-10">
+          <div className="w-full flex flex-col-reverse lg:flex-row justify-between gap-15 md:gap-3 sm:px-10">
             <div className="md:min-w-[516px] flex flex-col items-center">
               {/* <SchedulingCalendar /> */}
               <SchedulingCalender />
