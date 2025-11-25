@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight, Globe, ArrowLeft } from "lucide-react";
 
 const SchedulingCalender = () => {
@@ -12,7 +12,7 @@ const SchedulingCalender = () => {
     // Automatically detect user's timezone
     const userTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
     const offset = -new Date().getTimezoneOffset() / 60;
-    const sign = offset >= 0 ? '+' : '';
+    const sign = offset >= 0 ? "+" : "";
     return `GMT${sign}${offset}:00 ${userTimezone}`;
   });
   const [isLoading, setIsLoading] = useState(false);
@@ -25,6 +25,10 @@ const SchedulingCalender = () => {
     additionalInfo: "",
   });
 
+  useEffect(() => {
+    console.log("timezone", selectedTimezone);
+  });
+
   // Utility functions
   const isWeekend = (day: number) => {
     const checkDate = new Date(
@@ -35,7 +39,7 @@ const SchedulingCalender = () => {
     const dayOfWeek = checkDate.getDay(); // 0 = Sunday, 6 = Saturday
     return dayOfWeek === 0 || dayOfWeek === 6;
   };
-  
+
   const getDaysInMonth = (date: Date) =>
     new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
   const getFirstDayOfMonth = (date: Date) =>
@@ -165,16 +169,25 @@ const SchedulingCalender = () => {
     "08:30 AM",
     "09:00 AM",
     "09:30 AM",
-    "10:00 AM", "10:30 AM",
-    "11:00 AM", "11:30 AM",
-    "12:00 PM", "12:30 PM",
-    "2:00 PM", "2:30 PM",
-    "3:00 PM", "3:30 PM",
-    "4:00 PM", "4:30 PM",
-    "5:00 PM", "5:30 PM",
-    "6:00 PM", "6:30 PM",
-    "7:00 PM", "7:30 PM",
-    "8:00 PM"
+    "10:00 AM",
+    "10:30 AM",
+    "11:00 AM",
+    "11:30 AM",
+    "12:00 PM",
+    "12:30 PM",
+    "2:00 PM",
+    "2:30 PM",
+    "3:00 PM",
+    "3:30 PM",
+    "4:00 PM",
+    "4:30 PM",
+    "5:00 PM",
+    "5:30 PM",
+    "6:00 PM",
+    "6:30 PM",
+    "7:00 PM",
+    "7:30 PM",
+    "8:00 PM",
   ];
 
   const timezones = [
@@ -268,28 +281,40 @@ const SchedulingCalender = () => {
     "GMT+12:45 Pacific/Chatham",
     "GMT+13:00 Pacific/Tongatapu",
     "GMT+13:00 Pacific/Apia",
-    "GMT+14:00 Pacific/Kiritimati"
+    "GMT+14:00 Pacific/Kiritimati",
   ];
-  
-  
 
   return (
-    <div className="calenderContainer relative overflow-hidden" id="calendar-section">
+    <div
+      className="calenderContainer relative overflow-hidden"
+      id="calendar-section"
+    >
       {/* DATE SELECTION */}
       {step === "date" && (
-        <div className="w-[372px] md:w-[561px] min-h-[457px] md:h-[731px] border-2 border-border rounded-lg px-6 backdrop-blur" style={{ backgroundColor: "#FFD70021" }}>
+        <div
+          className="w-[372px] md:w-[561px] min-h-[457px] md:h-[731px] border-2 border-border rounded-lg px-6 backdrop-blur"
+          style={{ backgroundColor: "#FFD70021" }}
+        >
           <div className="w-full max-w-[372px] flex items-center justify-between m-3 md:m-15">
             <div className="flex flex-col gap-2 z-10">
               <h3 className="text-xl font-bold text-white">
                 {currentDate.toLocaleString("default", { month: "long" })}
               </h3>
-              <p className="text-sm text-gray-400">{currentDate.getFullYear()}</p>
+              <p className="text-sm text-gray-400">
+                {currentDate.getFullYear()}
+              </p>
             </div>
             <div className="flex items-center gap-2">
-              <button onClick={handlePrevMonth} className="p-1 hover:bg-yellow-500/20 rounded transition-colors">
+              <button
+                onClick={handlePrevMonth}
+                className="p-1 hover:bg-yellow-500/20 rounded transition-colors"
+              >
                 <ChevronLeft className="w-5 h-5 text-gray-400" />
               </button>
-              <button onClick={handleNextMonth} className="p-1 hover:bg-yellow-500/20 rounded transition-colors">
+              <button
+                onClick={handleNextMonth}
+                className="p-1 hover:bg-yellow-500/20 rounded transition-colors"
+              >
                 <ChevronRight className="w-5 h-5 text-gray-400" />
               </button>
             </div>
@@ -297,16 +322,19 @@ const SchedulingCalender = () => {
 
           <div className="grid grid-cols-7 gap-2 mb-4">
             {["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"].map((day) => (
-              <div key={day} className="text-center text-[24px] font-medium text-white">{day}</div>
+              <div
+                key={day}
+                className="text-center text-[24px] font-medium text-white"
+              >
+                {day}
+              </div>
             ))}
           </div>
 
           <div className="grid grid-cols-7 gap-2 mb-6">
             {days.map((day, idx) => {
-              const isDisabled = 
-              day === null || 
-              isPastDate(day) || 
-              isWeekend(day);
+              const isDisabled =
+                day === null || isPastDate(day) || isWeekend(day);
               return (
                 <button
                   key={idx}
@@ -318,7 +346,9 @@ const SchedulingCalender = () => {
                       ? "text-white font-bold"
                       : "text-gray-300 hover:bg-yellow-500/10 cursor-pointer"
                   }`}
-                  style={day === selectedDate ? { backgroundColor: "#FFD70021" } : {}}
+                  style={
+                    day === selectedDate ? { backgroundColor: "#FFD70021" } : {}
+                  }
                   disabled={isDisabled}
                 >
                   {day}
@@ -326,24 +356,50 @@ const SchedulingCalender = () => {
               );
             })}
           </div>
+
+          <div className="w-full flex items-center justify-center">
+            <div className="flex items-center gap-4">
+              <h2 className="text-white text-[18px] font-bold">
+                Current Time zone
+              </h2>
+              <p className="text-white text-[14px] font-medium">
+                {selectedTimezone}
+              </p>
+            </div>
+          </div>
         </div>
       )}
 
       {/* TIME SELECTION */}
       {step === "time" && (
         <div className="max-w-2xl mx-auto bg-[#FFD70021] border-2 border-border rounded-lg p-6 backdrop-blur">
-          <button onClick={handleBackStep} className="flex items-center gap-2 text-yellow-500 hover:text-yellow-400 mb-8 transition-colors">
+          <button
+            onClick={handleBackStep}
+            className="flex items-center gap-2 text-yellow-500 hover:text-yellow-400 mb-8 transition-colors"
+          >
             <ArrowLeft className="w-5 h-5" /> Back
           </button>
 
           <div className=" rounded-2xl p-8">
             <h2 className="text-white text-3xl font-bold text-center mb-2">
               {selectedDate !== null &&
-                new Date(currentDate.getFullYear(), currentDate.getMonth(), selectedDate).toLocaleDateString("default", { weekday: "long" })}
+                new Date(
+                  currentDate.getFullYear(),
+                  currentDate.getMonth(),
+                  selectedDate
+                ).toLocaleDateString("default", { weekday: "long" })}
             </h2>
             <p className="text-purple-200 text-center mb-8">
               {selectedDate !== null &&
-                new Date(currentDate.getFullYear(), currentDate.getMonth(), selectedDate).toLocaleDateString("default", { month: "long", day: "numeric", year: "numeric" })}
+                new Date(
+                  currentDate.getFullYear(),
+                  currentDate.getMonth(),
+                  selectedDate
+                ).toLocaleDateString("default", {
+                  month: "long",
+                  day: "numeric",
+                  year: "numeric",
+                })}
             </p>
 
             <div className="mb-8">
@@ -356,13 +412,19 @@ const SchedulingCalender = () => {
                 className="w-full px-4 py-3 rounded-lg bg-[#FFD70021] text-white border border-border focus:outline-none"
               >
                 {timezones.map((tz) => (
-                  <option key={tz} value={tz} className="bg-white text-black">{tz} </option>
+                  <option key={tz} value={tz} className="bg-white text-black">
+                    {tz}{" "}
+                  </option>
                 ))}
               </select>
             </div>
 
-            <h3 className="text-white text-xl font-bold text-center mb-2">Choose Time Slot</h3>
-            <p className="text-purple-200 text-center mb-6">Duration : 10 Mins</p>
+            <h3 className="text-white text-xl font-bold text-center mb-2">
+              Choose Time Slot
+            </h3>
+            <p className="text-purple-200 text-center mb-6">
+              Duration : 10 Mins
+            </p>
 
             <div className="space-y-3 max-h-96 overflow-y-auto">
               {timeSlots.map((time) => (
@@ -386,7 +448,10 @@ const SchedulingCalender = () => {
       {/* DETAILS FORM */}
       {step === "details" && (
         <div className="max-w-2xl mx-auto  backdrop-blur">
-          <button onClick={handleBackStep} className="flex items-center gap-2 text-yellow-500 hover:text-yellow-400 mb-8 transition-colors">
+          <button
+            onClick={handleBackStep}
+            className="flex items-center gap-2 text-yellow-500 hover:text-yellow-400 mb-8 transition-colors"
+          >
             <ArrowLeft className="w-5 h-5" /> Back
           </button>
 
@@ -396,21 +461,29 @@ const SchedulingCalender = () => {
             <form onSubmit={handleScheduleCall} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-white font-semibold mb-2">First Name *</label>
+                  <label className="block text-white font-semibold mb-2">
+                    First Name *
+                  </label>
                   <input
                     type="text"
                     value={formData.firstName}
-                    onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, firstName: e.target.value })
+                    }
                     required
                     className="w-full px-4 py-3 rounded-lg bg-[#FFD70021] text-white border border-purple-500/50 focus:outline-none"
                   />
                 </div>
                 <div>
-                  <label className="block text-white font-semibold mb-2">Last Name *</label>
+                  <label className="block text-white font-semibold mb-2">
+                    Last Name *
+                  </label>
                   <input
                     type="text"
                     value={formData.lastName}
-                    onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, lastName: e.target.value })
+                    }
                     required
                     className="w-full px-4 py-3 rounded-lg bg-[#FFD70021] text-white border border-purple-500/50 focus:outline-none"
                   />
@@ -419,21 +492,29 @@ const SchedulingCalender = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-white font-semibold mb-2">Phone *</label>
+                  <label className="block text-white font-semibold mb-2">
+                    Phone *
+                  </label>
                   <input
                     type="tel"
                     value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, phone: e.target.value })
+                    }
                     required
                     className="w-full px-4 py-3 rounded-lg bg-[#FFD70021] text-white border border-purple-500/50 focus:outline-none"
                   />
                 </div>
                 <div>
-                  <label className="block text-white font-semibold mb-2">Email *</label>
+                  <label className="block text-white font-semibold mb-2">
+                    Email *
+                  </label>
                   <input
                     type="email"
                     value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, email: e.target.value })
+                    }
                     required
                     className="w-full px-4 py-3 rounded-lg bg-[#FFD70021] text-white border border-purple-500/50 focus:outline-none"
                   />
@@ -441,10 +522,14 @@ const SchedulingCalender = () => {
               </div>
 
               <div>
-                <label className="block text-white font-semibold mb-2">Additional Info</label>
+                <label className="block text-white font-semibold mb-2">
+                  Additional Info
+                </label>
                 <textarea
                   value={formData.additionalInfo}
-                  onChange={(e) => setFormData({ ...formData, additionalInfo: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, additionalInfo: e.target.value })
+                  }
                   className="w-full px-4 py-3 rounded-lg bg-[#FFD70021] text-white border border-purple-500/50 focus:outline-none resize-none"
                   rows={4}
                 />
